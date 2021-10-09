@@ -21,11 +21,27 @@ function onclickSquare(event){
     }
 }
 
+function onmouseEnter(event){
+    let obj = this;
+    let classLst = obj.classList;
+    classLst.add("hover");
+}
+
+function onmouseOut(event){
+    let obj = this;
+    let classLst = obj.classList;
+    classLst.remove("hover");
+}
+
 window.onload = function() {
     let elementList= document.querySelectorAll("#board > div");
     Object.values(elementList).forEach((singleElement) =>  {
         let classLst = singleElement.classList;
         classLst.add("square");
         singleElement.addEventListener("click", onclickSquare);
+        singleElement.addEventListener("mouseenter", onmouseEnter);
+        singleElement.addEventListener("mouseout", onmouseOut);
     });
 };
+
+
